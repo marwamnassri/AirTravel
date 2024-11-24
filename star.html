@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excursion 2 jours à Star Wars Tozeur</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        header {
+            background-color: #3498db; /* Bleu */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .main-content {
+            margin-top: 100px;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-img-wrapper {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .product-img-wrapper img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        .product-img-wrapper img:hover {
+            transform: scale(1.05);
+        }
+
+        .product-heading {
+            padding: 10px;
+        }
+
+        .product-heading h3 {
+            font-size: 26px;
+            color: #3498db;
+        }
+
+        .tags {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 10px;
+        }
+
+        .product-description {
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .ticket-sales-container {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .flatpickr-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .additional-fields {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .additional-fields input,
+        .additional-fields select {
+            width: 48%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        @media (max-width: 768px) {
+            .product-wrapper {
+                flex-direction: column;
+            }
+
+            .additional-fields {
+                flex-direction: column;
+            }
+
+            .additional-fields input,
+            .additional-fields select {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Excursion 2 jours à Star Wars Tozeur</h1>
+    </header>
+
+    <div class="main-content">
+        <section class="product-wrapper">
+            <aside class="product-img-wrapper">
+                <img id="mainImage" src="images/star.jfif" alt="Star Wars Tozeur">
+            </aside>
+
+            <article class="product-img-wrapper">
+                <div class="product-heading">
+                    <h3>Excursion de 2 jours à Star Wars Tozeur</h3>
+                </div>
+
+                <div class="tags">Tozeur, Tunisie</div>
+
+                <div class="product-description">
+                    <h5>Description</h5>
+                    <p>Explorez les décors emblématiques de Star Wars à Tozeur et découvrez les paysages fantastiques du désert tunisien.</p>
+
+                    
+                    <div class="ticket-sales-container">
+                        <button class="btn" onclick="share()">Partager</button>
+                    </div>
+                    <form id="reservationForm">
+                        <h5>Sélectionnez votre date et votre heure :</h5>
+                        <input type="text" id="calendar" class="flatpickr-input" name="date" placeholder="Choisissez une date" required>
+
+                        <div class="additional-fields">
+                            <input type="time" id="time" name="time" placeholder="Choisissez une heure" required>
+                            <select id="persons" name="persons" required>
+                                <option value="" disabled selected>Nombre de personnes</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+
+                        <button class="btn" type="submit" style="margin-top: 10px;">Réserver</button>
+                    </form>
+                </div>
+            </article>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Excursion Star Wars Tozeur</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
+    <script>
+        flatpickr("#calendar", {
+            dateFormat: "Y-m-d",
+            minDate: "today",
+        });
+        function share() {
+            var choice = prompt("Sur quelle plateforme voulez-vous partager ? (facebook ou instagram)");
+
+            if (choice.toLowerCase() === 'facebook') {
+                window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
+            } else if (choice.toLowerCase() === 'instagram') {
+                window.open('https://www.instagram.com/stories?utm_source=ig_story_share&igshid=VOTRE_IGSHID', '_blank');
+            } else {
+                alert("Choix invalide. Veuillez choisir 'facebook' ou 'instagram'.");
+            }
+        }
+        const reserveForm = document.getElementById('reservationForm');
+
+        reserveForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Empêche l'envoi classique du formulaire
+
+            const formData = new FormData(reserveForm);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('/reserve', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert(result.message); // Affiche le message de succès
+                    reserveForm.reset(); // Réinitialise le formulaire
+                } else {
+                    alert(result.message); // Affiche le message d'erreur
+                }
+            } catch (error) {
+                console.error('Erreur lors de la réservation :', error);
+                alert('Erreur inattendue. Veuillez réessayer.');
+            }
+        });
+    </script>
+</body>
+</html>

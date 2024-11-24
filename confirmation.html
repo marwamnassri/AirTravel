@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de votre réservation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+        }
+        .confirmation {
+            margin-top: 50px;
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        footer {
+            text-align: center;
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="confirmation">
+        <h3>Confirmation de votre réservation</h3>
+        <p>Date : <span id="date"></span></p>
+        <p>Heure : <span id="time"></span></p>
+        <p>Nombre de personnes : <span id="persons"></span></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Sahara Explorer. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Récupérer les paramètres d'URL (date, heure, personnes)
+        const urlParams = new URLSearchParams(window.location.search);
+        const date = urlParams.get('date');
+        const time = urlParams.get('time');
+        const persons = urlParams.get('persons');
+
+        // Afficher les informations dans la page
+        document.getElementById('date').textContent = date;
+        document.getElementById('time').textContent = time;
+        document.getElementById('persons').textContent = persons;
+    </script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gouvernorat de Tozeur</title>
+    <style>
+        /* Style général */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Couleur douce pour le fond */
+        }
+
+        header {
+            background-color: #0056b3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Conteneur des filtres */
+        .filters {
+            margin: 20px auto;
+            max-width: 1200px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filters select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Conteneur des cartes */
+        .gouvernorat {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adaptation responsive */
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Style des cartes */
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card .card-body {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .card h3 {
+            color: #0056b3;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .card .btn-view-more {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #0056b3;
+            color: white;
+            font-size: 14px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .card .btn-view-more:hover {
+            background-color: #003d82;
+        }
+
+        /* Style des icônes en bas des cartes */
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            border-top: 1px solid #ddd;
+            background-color: #f8f9fa;
+        }
+
+        .card-footer i {
+            color: #0056b3;
+            font-size: 18px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .card-footer i:hover {
+            color: #003d82;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1>Gouvernorat de Tozeur : Meilleures Activités</h1>
+    </header>
+
+    <!-- Section des filtres -->
+    <div class="filters">
+        <select id="priceFilter">
+            <option value="default">Prix</option>
+            <option value="low-high">Croissant</option>
+            <option value="high-low">Décroissant</option>
+        </select>
+    </div>
+
+    <!-- Section des cartes -->
+    <div class="gouvernorat" id="activityList">
+        <div class="card" data-price="200">
+            <img src="images/sahara.avif" alt="Sahara">
+            <div class="card-body">
+                <h3>Excursion de 2 jours au Sahara Explorer</h3>
+                <p>Durée : 2 jours</p>
+                <p>Prix : 200 TND</p>
+                <p>Langue : Français, Arabe</p>
+                <a href="tozeur-details.html" class="btn-view-more">Voir Plus</a>
+            </div>
+            <div class="card-footer">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-comment"></i>
+            </div>
+        </div>
+
+        <div class="card" data-price="120">
+            <img src="images/star.jfif" alt="Star Wars">
+            <div class="card-body">
+                <h3>Tozeur : Lieux de tournage de Star Wars</h3>
+                <p>Durée : 8 heures</p>
+                <p>Prix : 120 TND</p>
+                <p>Langue : Anglais, Français</p>
+                <a href="star.html" class="btn-view-more">Voir Plus</a>
+            </div>
+            <div class="card-footer">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-comment"></i>
+            </div>
+        </div>
+
+        <div class="card" data-price="50">
+            <img src="images/cham.png" alt="Chameau">
+            <div class="card-body">
+                <h3>Tozeur : Balade à dos de chameau dans le désert</h3>
+                <p>Durée : 2 heures</p>
+                <p>Prix : 50 TND</p>
+                <p>Langue : Anglais, Français</p>
+                <a href="#" class="btn-view-more">Voir Plus</a>
+            </div>
+            <div class="card-footer">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-comment"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('priceFilter').addEventListener('change', function() {
+            const order = this.value;
+            const cards = Array.from(document.querySelectorAll('.card'));
+
+            if (order === 'low-high') {
+                cards.sort((a, b) => Number(a.dataset.price) - Number(b.dataset.price));
+            } else if (order === 'high-low') {
+                cards.sort((a, b) => Number(b.dataset.price) - Number(a.dataset.price));
+            }
+
+            const container = document.getElementById('activityList');
+            container.innerHTML = ''; // Réinitialiser le conteneur
+            cards.forEach(card => container.appendChild(card)); // Ajouter les cartes triées
+        });
+    </script>
+
+</body>
+</html>

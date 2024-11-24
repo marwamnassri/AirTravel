@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirTravel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header>
+        <div class="logo">
+            <a href="index.html"> <span>Air</span> Travel</a>
+        </div>
+        <ul class="menu">
+            <li><a href="#">Acceuil</a></li>
+            <li><a href="#a-propos">à propos</a></li>
+            <li><a href="#popular-destination">destinations</a></li>
+            <li><a href="#Hébergement">Hébergement</a></li>
+            <li><a href="#contact">contact</a></li>
+            <li class="search-container">
+                <input type="text" id="search-input" placeholder="Rechercher une destination..." onkeyup="searchDestinations()">
+            </li>
+        </ul>
+        <a href="reservation.html" class="btn-reservation">Réserver Maintenant</a>
+
+        <!-- Avatar de l'utilisateur -->
+        <div id="user-avatar" class="user-avatar">
+            <img src="images/user.avif" alt="Avatar Utilisateur" id="avatar" class="avatar" onclick="toggleUserMenu()">
+            <div id="user-menu" class="user-menu">
+                <ul>
+                    <li><a href="profil.html">Mon Profil</a></li>
+                
+                    <li><a href="connexion.html" id="logout">Déconnexion</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="responsive-menu"></div>
+    </header>
+
+    <!-- Acceuil section -->
+    <section id="home">
+        <h2>Nous suivre</h2>
+        <h4>Voyagez en Sécurité</h4>
+        <a href="reservation.html" class="btn-reservation home-btn">Réserver Maintenant</a>
+    </section>
+
+    <!-- A propos section -->
+    <section id="a-propos">
+        <h1 class="title">à propos</h1>
+        <div class="img-desc">
+           <div class="left">
+                <video src="images/video.mp4" autoplay loop></video>
+           </div>
+            <div class="right">
+                <h3>Nous voyageons pour chercher d'autres états, d'autres vies, d'autres âmes.</h3>
+                <a href="lire.html">Lire Plus</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section destinations -->
+    <section id="popular-destination">
+        <h1 class="title">destinations populaires</h1>
+        <div class="content">
+            <!-- Box Paris -->
+            <div class="box">
+                <img src="images/paris.jpg" alt="">
+                <div class="content">
+                    <h4>Paris</h4>
+                    <a href="#">Lire Plus</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/tt.jpg" alt="">
+                <div class="content">
+                    <h4>Tunisie</h4>
+                    <a href="tunis.html">Lire Plus</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/tokio.jpg" alt="">
+                <div class="content">
+                    <h4>tokio</h4>
+                    <a href="#">Lire Plus</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/Miami.jpg" alt="">
+                <div class="content">
+                    <h4>Miami</h4>
+                    <a href="#">Lire Plus</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/kk.jpg" alt="">
+                <div class="content">
+                    <h4>Korea</h4>
+                    <a href="#">Lire Plus</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/beautiful-landmark-river-landscape-complex.jpg" alt="">
+                <div class="content">
+                    <h4>Dubai</h4>
+                    <a href="#">Lire Plus</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/swisse.jpg" alt="">
+                <div class="content">
+                    <h4>Spain</h4>
+                    <a href="#">Lire Plus</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/jap.avif" alt="">
+                <div class="content">
+                    <h4>Japense</h4>
+                    <a href="#">Lire Plus</a>
+                </div>
+            </div>
+            <!-- Autres boxes destinations... -->
+        </div>
+    </section>
+
+<!-- Section destinations -->
+<section id="popular-destination">
+    <h1 class="title">Hébergement populaires</h1>
+    <div class="content">
+        <!-- Box Paris -->
+        <div class="box">
+            <img src="images/mouven.jfif" alt="">
+            <div class="content">
+                <h4>Movenpick</h4>
+                <a href="hotel.html">Lire Plus</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="images/bb.jpg" alt="">
+            <div class="content">
+                <h4> Claridges Hotel</h4>
+                <a href="tunis.html">Lire Plus</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="images/plaza.jfif" alt="">
+            <div class="content">
+                <h4>Le Plaza</h4>
+                <a href="#">Lire Plus</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="images/hil.jfif" alt="">
+            <div class="content">
+                <h4>Hilton</h4>
+                <a href="#">Lire Plus</a>
+            </div>
+        </div>
+       
+        
+        
+        
+        <!-- Autres boxes destinations... -->
+    </div>
+</section>
+
+<!-- Section de contact -->
+<section id="contact">
+    <h1 class="title">Contact</h1>
+    <form id="contactForm">
+        <div class="left-right">
+            <!-- Partie gauche du formulaire -->
+            <div class="left">
+                <label for="fullName">Nom Complet</label>
+                <input type="text" id="fullName" name="full_name" required>
+
+                <label for="subject">Objet</label>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" cols="30" rows="10" required></textarea>
+            </div>
+
+            <!-- Partie droite du formulaire -->
+            <div class="right">
+                <label for="phone">Numéro</label>
+                <input type="text" id="phone" name="phone">
+
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date">
+
+                <label for="details">Autres Détails</label>
+                <input type="text" id="details" name="details">
+
+                <label for="address">Adresse</label>
+                <!-- Google Maps iframe pour l'adresse -->
+                <iframe id="address" src="https://www.google.com/maps/embed?pb=..." width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <!-- Bouton d'envoi -->
+        <button type="submit">Envoyer</button>
+    </form>
+</section>
+
+<script>
+// Ecouter l'événement de soumission du formulaire
+document.getElementById('contactForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Empêche l'envoi classique du formulaire
+
+    // Récupérer les données du formulaire
+    const formData = new FormData(this); // Crée un objet FormData à partir du formulaire
+    const data = Object.fromEntries(formData.entries()); // Convertit FormData en un objet JSON
+
+    try {
+        // Envoi des données au serveur via une requête Fetch
+        const response = await fetch('/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json', // Indiquer que l'on envoie des données en JSON
+            },
+            body: JSON.stringify(data), // Conversion des données en JSON avant l'envoi
+        });
+
+        const result = await response.json(); // Récupère la réponse du serveur (format JSON)
+
+        if (result.success) {
+            alert('Message envoyé avec succès');
+            this.reset(); // Réinitialise le formulaire après soumission
+        } else {
+            alert('Erreur : ' + result.message); // Affiche un message d'erreur en cas de problème
+        }
+    } catch (error) {
+        console.error('Erreur lors de l\'envoi du formulaire:', error);
+        alert('Une erreur s\'est produite. Veuillez réessayer.'); // Affiche une erreur si la requête échoue
+    }
+});
+</script>
+
+
+
+    <footer>
+        <p> Réalisé par <span>Air Travel</span> | Tous les droits sont réservés.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Fonction pour filtrer les éléments en fonction de la recherche
+        function searchDestinations() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const itemsToFilter = document.querySelectorAll('#popular-destination .content .box');
+
+            itemsToFilter.forEach(function(item) {
+                const title = item.querySelector('h4').textContent.toLowerCase();
+
+                // Vérifier si le terme de recherche est présent dans le titre
+                if (title.includes(searchInput)) {
+                    item.style.display = ''; // Afficher l'élément
+                } else {
+                    item.style.display = 'none'; // Masquer l'élément
+                }
+            });
+        }
+
+        // Fonction pour afficher/masquer le menu utilisateur
+        function toggleUserMenu() {
+            const userMenu = document.getElementById('user-menu');
+            userMenu.style.display = (userMenu.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

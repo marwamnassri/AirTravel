@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Profil</title>
+    <style>
+        /* Réinitialisation */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(to bottom right, #f7f7f7, #e0e0e0);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding-top: 60px; /* Pour éviter le chevauchement avec le header */
+        }
+
+        header {
+            width: 100%;
+            background: rgba(0, 123, 255, 0.8);
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo a {
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header .logo span {
+            color: #ffcc00;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu li {
+            margin: 0 10px;
+        }
+
+        .menu li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .menu li a:hover {
+            background: #ffcc00;
+            color: #333;
+        }
+
+        #profile {
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        #profile h1 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .profile-info {
+            text-align: left;
+        }
+
+        .profile-info p {
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+
+        .profile-info strong {
+            color: #007bff;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        footer span {
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><span></span> </a>
+        </div>
+        <ul class="menu">
+           
+            <li><a href="connexion.html">Déconnexion</a></li>
+        </ul>
+    </header>
+
+    <section id="profile">
+        <h1>Bienvenue sur votre profil, <span id="user-name"></span></h1>
+        <div class="profile-info">
+            <p><strong>Nom : </strong><span id="user-name-profile"></span></p>
+            <p><strong>Email : </strong><span id="user-email"></span></p>
+            <p><strong>ID Utilisateur : </strong><span id="user-id"></span></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Réalisé par <span>Air Travel</span> | Tous les droits sont réservés.</p>
+    </footer>
+
+    <script>
+        // Charger les informations utilisateur depuis la session
+        window.onload = function() {
+            fetch('/profile')  // Route pour obtenir les données utilisateur
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('user-name').textContent = data.name;
+                        document.getElementById('user-name-profile').textContent = data.name;
+                        document.getElementById('user-email').textContent = data.email;
+                        document.getElementById('user-id').textContent = data.id;
+                    } else {
+                        window.location.href = '/connexion';  // Redirige si l'utilisateur n'est pas connecté
+                    }
+                });
+        };
+    </script>
+</body>
+</html>

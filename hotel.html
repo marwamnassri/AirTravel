@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation d'Hôtel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+
+        #reservation {
+            background-color: white;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, select, textarea {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #3498db;
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <section id="reservation">
+        <h1>Réservation d'Hôtel</h1>
+        <form id="reservationForm">
+            <div class="form-group">
+                <label for="destination">Destination</label>
+                <input type="text" id="destination" name="destination" required>
+
+                <label for="location">Emplacement</label>
+                <input type="text" id="location" name="location" required>
+
+                <label for="checkinDate">Date d'Arrivée</label>
+                <input type="date" id="checkinDate" name="checkin_date" required>
+
+                <label for="checkoutDate">Date de Départ</label>
+                <input type="date" id="checkoutDate" name="checkout_date" required>
+
+                <label for="numberOfPeople">Nombre de Personnes</label>
+                <input type="number" id="numberOfPeople" name="number_of_people" min="1" required>
+
+                <label for="paymentMethod">Mode de Paiement</label>
+                <select id="paymentMethod" name="payment_method" required>
+                    <option value="credit_card">Carte de Crédit</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bank_transfer">Virement Bancaire</option>
+                </select>
+
+                <label for="specialRequests">Demandes Spéciales</label>
+                <textarea id="specialRequests" name="special_requests" rows="4" placeholder="Si vous avez des demandes spéciales, veuillez les indiquer ici."></textarea>
+
+                <button type="submit">Réserver</button>
+            </div>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById('reservationForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Empêche l'envoi classique du formulaire
+
+            // Récupérer les données du formulaire
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries()); // Convertit FormData en un objet JSON
+
+            // Affichage des données du formulaire dans la console (pour débogage)
+            console.log(data);
+
+            // Simuler une requête de soumission
+            try {
+                // Simuler un délai de traitement (exemple : attendre 2 secondes)
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+                // Afficher un message de succès
+                alert('Réservation effectuée avec succès !');
+                this.reset(); // Réinitialise le formulaire
+            } catch (error) {
+                console.error('Erreur lors de la réservation:', error);
+                alert('Une erreur est survenue. Veuillez réessayer.');
+            }
+        });
+    </script>
+
+</body>
+</html>

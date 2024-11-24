@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Déconnexion</title>
+</head>
+<body>
+    <p>Déconnexion en cours...</p>
+
+    <script>
+        fetch('/logout') // Envoie une requête à la route de déconnexion
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Vous êtes déconnecté avec succès.');
+                    window.location.href = '/inscription'; // Redirige vers la page d'inscription
+                } else {
+                    alert('Erreur lors de la déconnexion.');
+                    window.location.href = '/'; // Redirige vers la page d'accueil en cas d'erreur
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de la déconnexion :', error);
+                alert('Une erreur est survenue.');
+                window.location.href = '/'; // Redirige vers la page d'accueil
+            });
+    </script>
+</body>
+</html>

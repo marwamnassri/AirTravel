@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation - AirTravel</title>
+    <style>
+        /* Style général pour le body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Style du header */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header .logo a {
+            color: white;
+            font-size: 1.8rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header .logo span {
+            color: #4CAF50; /* Vert */
+        }
+
+        /* Style du menu */
+        ul.menu {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        ul.menu li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        ul.menu li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        /* Style de la section réservation */
+        #reservation {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Style du titre */
+        #reservation h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Style du paragraphe */
+        #reservation p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Conteneur des boutons */
+        .reservation-options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Style des boutons */
+        .btn-connexion, .btn-inscription {
+            background-color: transparent;
+            border: 2px solid #4CAF50; /* Bordure verte */
+            color: #4CAF50;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        /* Effet au survol du bouton connexion */
+        .btn-connexion:hover {
+            background-color: #4CAF50;
+            color: white;
+            transform: translateY(-2px); /* Effet de survol */
+        }
+
+        /* Bouton d'inscription */
+        .btn-inscription {
+            border-color: #007BFF; /* Bordure bleue */
+            color: #007BFF;
+        }
+
+        /* Effet au survol du bouton inscription */
+        .btn-inscription:hover {
+            background-color: #007BFF;
+            color: white;
+            transform: translateY(-2px); /* Effet de survol */
+        }
+
+        /* Style du footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        footer span {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Section Réservation -->
+    <section id="reservation">
+        <h2>Réservez votre voyage</h2>
+        <p>Veuillez vous connecter ou vous inscrire pour continuer.</p>
+        
+        <div class="reservation-options">
+            <a href="connexion.html" class="btn-connexion">Se connecter</a>
+            <a href="inscription.html" class="btn-inscription">S'inscrire</a>
+        </div>
+    </section>
+
+</body>
+</html>

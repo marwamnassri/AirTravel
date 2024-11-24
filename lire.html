@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voyage - À la découverte de soi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            background-color: #fff;
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .quote {
+            font-size: 1.5em;
+            color: #3498db;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .quote span {
+            font-weight: bold;
+        }
+
+        .read-more {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #2c7abf;
+        }
+
+        .hidden-content {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <p class="quote">"Nous voyageons pour chercher <span>d'autres états</span>, d'autres vies, <span>d'autres âmes</span>."</p>
+        <a href="#" class="read-more" id="read-more-link">Lire plus...</a>
+        <div class="hidden-content" id="hidden-content">
+            <p>
+                Le voyage n'est pas seulement une quête des lieux inconnus, mais aussi une exploration intérieure. 
+                Chaque nouvelle destination nous permet de nous reconnecter avec une autre facette de nous-mêmes. 
+                C'est dans la diversité des cultures et des rencontres que nous trouvons parfois les réponses à nos 
+                propres questions existentielles. Le voyage est une métaphore de la vie, une aventure qui nous transforme.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Lien "Lire plus" qui affiche plus de contenu
+        document.getElementById('read-more-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            let content = document.getElementById('hidden-content');
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+            this.textContent = content.style.display === 'none' ? 'Lire plus...' : 'Lire moins';
+        });
+    </script>
+
+</body>
+</html>
